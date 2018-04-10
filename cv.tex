@@ -1,0 +1,144 @@
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+                            
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+    \textheight=700px                    % Saving trees ;-)
+\usepackage{url}
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{%                      % Change font of \section command
+    \usefont{OT1}{phv}{b}{n}%       % bch-b-n: CharterBT-Bold font
+    \sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{888888888888}          % Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}       % Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+        \Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+        \par \normalsize \normalfont}
+        
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+        \large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+        \par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+        \noindent\hangindent=2em\hangafter=0 % Indentation
+        \parbox{\spacebox}{        % Box to align text
+        \textit{#1}}               % Entry name (birth, address, etc.)
+        \hspace{1.5em} #2 \par}    % Entry value
+
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+        \noindent\hangindent=2em\hangafter=0 % Indentation
+        \parbox{\spacebox}{        % Box to align text
+        \textit{#1}}               % Entry name (birth, address, etc.)
+        \hspace{1.5em} #2 \par}    % Entry value    
+        
+\newcommand{\EducationEntry}[4]{
+        \noindent \textbf{#1} \hfill      % Study
+        \colorbox{Black}{%
+            \parbox{6em}{%
+            \hfill\color{White}#2}} \par  % Duration
+        \noindent \textit{#3} \par        % School
+        \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+        \normalsize \par}
+
+\newcommand{\WorkEntry}[4]{               % Same as \EducationEntry
+        \noindent \textbf{#1} \hfill      % Jobname
+        \colorbox{Black}{\color{White}#2} \par  % Duration
+        \noindent \textit{#3} \par              % Company
+        \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+        \normalsize \par}
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+% you can upload a photo and include it here...
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%   \vspace*{-2em}
+%       \includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+\MyName{Ekow Yamoah Mensah}
+\MySlogan{}
+
+\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\NewPart{Personal details}{}
+
+\PersonalEntry{Birth}{April 27, 1995}
+\PersonalEntry{Address}{Forest Court Flat A 6B, Forest Road, Loughborough, Leicestershire}
+\PersonalEntry{PostCode}{LE11 3NT}
+\PersonalEntry{Phone}{(+44) 07925602856}
+\PersonalEntry{Mail}{\url{yamoah.ensah@yahoo.com}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{MSc. Advanced Computer Science}{2017-present}{Loughborough University}{ The project I am currently working on involves using technologies such as Google's cartographer and a Velodyne VLP-16 LiDAR to implement indoor simultaneous localisation and mapping with a mobile robot. This includes writing a c++ program to extract cloud point data gathered from the LiDAR and use that as input to the cartographer application.\\}{\noindent Modules studied include: Advanced Programming, Robotics and Intelligent Systems, Computer Vision and Embedded Systems.}
+
+
+\sepspace
+
+\EducationEntry{BSc. Computer Science}{2014-2017}{Keele University - First Class Honours}{My project involved developing a navigation application for small organisations. This included creating a web server to handle requests for locations, designing a database to store waypoint data and other relevant data and designing the user-interface taking into account the user experience and usability. Technologies such as HTML5, PHP, MySQL and Ionic Framework with TypeScript were used to develop the application.\\}{\noindent Modules studied include: Systems Lifecycles and Design, Advanced Programming Practices, Advanced Database Systems and Applications, Communication and Networks, Information Systems}
+
+\sepspace
+
+\EducationEntry{Cambridge GCE A Levels}{2013-2014}{Ghana International School}{\begin{itemize}
+ \item Computing: C
+ \item Economics: B
+ \item Physics: C
+\end{itemize}}
+
+\newpage
+%%% Work experience
+%%% ------------------------------------------------------------
+\NewPart{Work experience}{}
+
+\EducationEntry{Web Developer}{2017}{ClearLights Media Ltd, Full-time}{Responsibilities included designing wireframes for webpages and developing underlying JavaScript functions for handling user interactions. Additionally, I worked in conjunction with lead developer to create classes, models and services for handling user requests. }
+\sepspace
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+
+\SkillsEntry{Programming Languages}{C/C++}
+\SkillsEntry{}{HTML5/CSS}
+\SkillsEntry{}{JavaScript}
+\SkillsEntry{}{Matlab}
+\SkillsEntry{}{MySQL}
+
+
+\SkillsEntry{Software}{\textsc{Matlab}, \LaTeX, \textsc{Ansys}, \textsc{Comsol}}
+
+
+\NewPart{Positions Of Responsibility}{}
+
+\EducationEntry{Assistant Leader of Christian Campus Fellowship}{2016-2017}{Jesus Jam \\}
+{My responsibilities included: \begin{itemize}
+\item Liaising with chaplains concerning needs that the fellowship required. 
+\item Working with the leader and team to organise the annual conference. 
+\item Communicating with team members concerning issues which arose.
+\end{itemize}}
+%%% References
+%%% ------------------------------------------------------------
+\NewPart{References}{}
+Available upon request
+\end{document}
